@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web1-html</title>
     <meta charset="utf-8">
+    <title>html study</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    //중복된 함수가 있어서 함수로 묶자
+      function setlinkColor(color){
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = color;
+          i = i + 1;
+        }
+      }
+
+      function bodysetcolor(color) {
+        document.querySelector('body').style.color = color;
+      }
+
+      function backgroundSetcolor(color){
+        document.querySelector('body').style.backgroundColor = color;
+      }
+      function nightdayhandler(self){
+        var target = document.querySelector('body');
+        if (self.value === 'night'){
+          backgroundSetcolor('black');
+          bodysetcolor('white');
+          setlinkColor('cyan');
+          self.value = 'day';
+
+        } else{
+          backgroundSetcolor('white');
+          bodysetcolor('black');
+          setlinkColor('magenta');
+          self.value = 'night';
+          }
+      }
+    </script>
   </head>
 
   <body>
+    <!--title-->
     <h1><a href="index.html">WEB</a></h1>
-    <ol>
-      <li><a href = "1.html">html</a></li>
-      <li><a href = "2.html">css</a></li>
-      <li><a href = "3.html">javascript</a></li>
-    </ol>
-    <h2>JAVASCRIPT</h2>
-    <p>document.write("Hello, world!"); // HTML 문서에 출력된다.
-alert("Hello, world!"); // 알림창으로 출력된다.
-console.log("Hello, world!"); // 보통 F12(macOS의 경우에는 ⌘+⌥+I)를 누르면 보이는 콘솔 창에 출력된다.
-모질라 재단의 프로토타입 기반의 프로그래밍 언어로, 스크립트 언어에 해당된다. 특수한 목적이 아닌 이상 모든 웹 브라우저에 인터프리터가 내장되어 있다. 오늘날 HTML, CSS와 함께 웹을 구성하는 요소 중 하나다. HTML이 웹 페이지의 기본 구조를 담당하고, CSS가 디자인을 담당한다면 JavaScript는 클라이언트 단에서 웹 페이지가 동작하는 것을 담당한다.[1] 웹 페이지를 자동차에 비유하자면, HTML은 자동차의 뼈대, CSS는 자동차의 외관, JavaScript는 자동차의 동력이라고 볼 수 있다.
-썬 마이크로시스템즈(현재 오라클)에서 개발한 Java와는 별 관계가 없는 언어이다. 이름이 비슷하다고 같은 언어가 아니다. 사람들이 흔히 헷갈리는 부분 중 하나라 자바의 소유자인 오라클에서도 아니라고 강조한다[2], 실질적인 구동 방식도 JVM을 이용해서 돌리는 Java와, 브라우저 내에 스크립트 엔진(인터프리터)이 존재하는 JavaScript는 완전히 다르다. 햄이랑 햄스터가 다르고 파와 파슬리가 다르며, 인도가 인도네시아와 다르듯 심지어는 웹 서버용 파생 규격도 다르다.</p>
+    <input type="button" value="night" onclick="
+      nightdayhandler(this);
+    ">
+
+    <!-- 쓸모없어지게된 코
+    <input type="button" name="" value="night" onclick="
+      document.querySelector('body','ol').style.backgroundColor ='black';
+      document.querySelector('body','ol').style.color = 'white';
+    ">
+    <input type="button" name="" value="day" onclick="
+      document.querySelector('body').style.backgroundColor ='white';
+      document.querySelector('body').style.color = 'black';
+    ">
+    -->
+    <div id="grid">
+      <!--menu list-->
+      <ol>
+        <li><a href="1.html">html</a></li>
+        <li><a href="2.html">css</a></li>
+        <li><a href="3.html">javascript</a></li>
+      </ol>
+
+      <!--article-->
+      <div id="article">
+        <h2>javascript</h2>
+        <img alt="brown bread with white sugar" src="https://images.unsplash.com/photo-1645442083959-adf016a9641a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80" width="300px" style="float:right;">먹짤</a>
+        <p>deprecate verb (<em>N<sub>O</sub>T APPROVE</em>)
+        [ T not continuous ]
+        to not approve of something or say <del>that</del> you do not approve of something:
+        We deprecate this use of company funds for political purposes.
+        CSS is the language we use to style an <abbr title="hypertext markup language"></abbr>HTML document.
+        CSS describes how HTML elements should be displayed.
+        <bdo dir="rtl">This tutorial will teach you CSS from basic to advanced.</bdo>
+
+        </p>
+
+        <!-- 위의 버튼과 다른 코드-->
+        <!-- 이렇게 된것을 리펙토링이라고 부른다고 한다-->
+
+
+      </div>
+    </div>
   </body>
 </html>
+
